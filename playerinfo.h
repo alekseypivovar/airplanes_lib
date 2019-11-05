@@ -4,6 +4,10 @@
 #include "warships_airplanes_dll_global.h"
 #include <QPointF>
 #include <QDataStream>
+#define FRAMES_PER_SEC 40
+#define TILE_SIZE 32
+#define PLANE_SPEED 5
+#define ANGLE_SPEED 1
 
 struct idAndMap {
     qint32 id;
