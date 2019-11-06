@@ -35,6 +35,9 @@ private:
     qint16 health;
     qreal  angle;
 
+signals:
+    void planeMoved(Plane* plane);
+
 };
 
 #endif // PLANE_H

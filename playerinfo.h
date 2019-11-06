@@ -2,6 +2,8 @@
 #define PLAYERINFO_H
 
 #include "warships_airplanes_dll_global.h"
+#include <QVector>
+#include <QString>
 #include <QPointF>
 #include <QDataStream>
 #define FRAMES_PER_SEC 40

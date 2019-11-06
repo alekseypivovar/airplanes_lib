@@ -59,6 +59,8 @@ void Plane::advance(int phase)
         qreal dy = speed * sin(angle * M_PI / 180.0) * (-1);
         this->moveBy(dx, dy);
         this->setRotation(-angle);
+
+        emit planeMoved(this);
     }
 }
 
