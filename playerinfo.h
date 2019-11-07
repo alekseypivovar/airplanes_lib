@@ -61,22 +61,30 @@ private:
     qint16 health;
 };
 
-inline QDataStream &operator <<(QDataStream &out, const idAndMap &any)
+inline QDataStream &operator <<(QDataStream& out, const idAndMap& any)
 {
     out << any.id;
-    out << any.map;
+    out << static_cast<quint32>(any.map.size());
+    for (auto& vecElement : any.map)
+        out << vecElement;
+
     return out;
 }
 
-inline QDataStream &operator >>(QDataStream &out, idAndMap &any)
+inline QDataStream &operator >>(QDataStream& out, idAndMap& any)
 {
     out >> any.id;
-    out >> any.map;
+    quint32 tempSize;
+    out >> tempSize;
+    any.map.resize(tempSize);
+    for (quint32 i = 0 ; i < tempSize ; i++)
+    out >> any.map[i];
+
     return out;
 }
 
 
-inline QDataStream &operator <<(QDataStream &out, const PlayerInfo &any)
+inline QDataStream &operator <<(QDataStream& out, const PlayerInfo& any)
 {
     out << any.getId();
     out << any.getPos();
@@ -88,7 +96,7 @@ inline QDataStream &operator <<(QDataStream &out, const PlayerInfo &any)
     return out;
 }
 
-inline QDataStream &operator >> (QDataStream &out, PlayerInfo &any)
+inline QDataStream &operator >> (QDataStream& out, PlayerInfo& any)
 {
     qint32 id;
     out >> id;
