@@ -9,9 +9,9 @@
 #define FRAMES_PER_SEC 40
 #define TILE_SIZE 32
 #define PLANE_SPEED 5
-#define ANGLE_SPEED 1
+#define ANGLE_SPEED 3
 
-struct idAndMap {
+struct WARSHIPS_AIRPLANES_DLLSHARED_EXPORT idAndMap {
     qint32 id;
     QVector <QString> map;
 };
@@ -64,7 +64,7 @@ private:
 inline QDataStream &operator <<(QDataStream& out, const idAndMap& any)
 {
     out << any.id;
-    out << static_cast<quint32>(any.map.size());
+    out << /*static_cast<quint32>*/(any.map.size());
     for (auto& vecElement : any.map)
         out << vecElement;
 
@@ -74,11 +74,11 @@ inline QDataStream &operator <<(QDataStream& out, const idAndMap& any)
 inline QDataStream &operator >>(QDataStream& out, idAndMap& any)
 {
     out >> any.id;
-    quint32 tempSize;
+    int/*quint32*/ tempSize;
     out >> tempSize;
     any.map.resize(tempSize);
-    for (quint32 i = 0 ; i < tempSize ; i++)
-    out >> any.map[i];
+    for (int/*quint32*/ i = 0 ; i < tempSize ; i++)
+        out >> any.map[i];
 
     return out;
 }
