@@ -1,6 +1,6 @@
 #include "plane.h"
 
-Plane::Plane(qint32 id, PlayerInfo::Type type, qreal angle, qreal speed, qreal angleSpeed, qint16 health)
+Plane::Plane(qint16 id, PlayerInfo::Type type, qint16 angle, quint8 speed, qint8 angleSpeed, quint8 health)
 {
     this->id     = id;
     this->type   = type;
@@ -10,17 +10,17 @@ Plane::Plane(qint32 id, PlayerInfo::Type type, qreal angle, qreal speed, qreal a
     this->angle  = angle;
 }
 
-void Plane::setSpeed(qreal speed)
+void Plane::setSpeed(quint8 speed)
 {
     this->speed = speed;
 }
 
-void Plane::setAngleSpeed(qreal angleSpeed)
+void Plane::setAngleSpeed(qint8 angleSpeed)
 {
     this->angleSpeed = angleSpeed;
 }
 
-void Plane::setHealth(qint16 health)
+void Plane::setHealth(quint8 health)
 {
     this->health = health;
 }
@@ -30,23 +30,23 @@ PlayerInfo::Type Plane::getType() const
     return type;
 }
 
-qreal Plane::getSpeed() const
+quint8 Plane::getSpeed() const
 {
     return speed;
 }
 
 
-qreal Plane::getAngleSpeed() const
+qint8 Plane::getAngleSpeed() const
 {
     return  angleSpeed;
 }
 
-qint16 Plane::getHealth() const
+quint8 Plane::getHealth() const
 {
     return health;
 }
 
-qint32 Plane::getId() const
+qint16 Plane::getId() const
 {
     return id;
 }
@@ -73,8 +73,8 @@ QRectF Plane::boundingRect() const
 
 void Plane::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    Q_UNUSED(option);
-    Q_UNUSED(widget);
+    Q_UNUSED(option)
+    Q_UNUSED(widget)
     painter->save();
     painter->drawPixmap(- IMAGE_SIZE / 2, - IMAGE_SIZE / 2, IMAGE_SIZE, IMAGE_SIZE, QPixmap(":/images/plane.png"));
     painter->restore();

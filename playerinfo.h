@@ -12,7 +12,7 @@
 #define ANGLE_SPEED 3
 
 struct WARSHIPS_AIRPLANES_DLLSHARED_EXPORT idAndMap {
-    qint32 id;
+    qint16 id;
     QVector <QString> map;
 };
 
@@ -29,36 +29,36 @@ public:
     };
 
 
-    PlayerInfo(qint32 id, QPointF pos, qreal angle, Type type, qreal speed, qreal angleSpeed, qint16 health);
+    PlayerInfo(qint16 id, QPointF pos, qint16 angle, Type type, quint8 speed, qint8 angleSpeed, quint8 health);
     PlayerInfo();
 
-    qint32  getId() const;
-    QPointF getPos() const;
-    qreal   getAngle() const;
-    Type    getType() const;
-    qreal   getSpeed() const;
-    qreal   getAngleSpeed() const;
-    qint16  getHealth() const;
+    qint16  getId() const;
+    QPointF  getPos() const;
+    qint16   getAngle() const;
+    Type     getType() const;
+    quint8   getSpeed() const;
+    qint8    getAngleSpeed() const;
+    quint8   getHealth() const;
 
-    void setId(qint32 id);
+    void setId(qint16 id);
     void setPos(QPointF pos);
-    void setAngle(qreal angle);
+    void setAngle(qint16 angle);
     void setType(Type type);
-    void setSpeed(qreal speed);
-    void setAngleSpeed(qreal angleSpeed);
-    void setHealth(qint16 health);
+    void setSpeed(quint8 speed);
+    void setAngleSpeed(qint8 angleSpeed);
+    void setHealth(quint8 health);
 
 
 
 
 private:
-    qint32 id;
+    qint16 id;
     QPointF pos;
-    qreal angle;
-    Type type;
-    qreal speed;
-    qreal angleSpeed;
-    qint16 health;
+    qint16 angle;
+    Type   type;
+    quint8 speed;
+    qint8  angleSpeed;
+    quint8 health;
 };
 
 inline QDataStream &operator <<(QDataStream& out, const idAndMap& any)
@@ -98,13 +98,13 @@ inline QDataStream &operator <<(QDataStream& out, const PlayerInfo& any)
 
 inline QDataStream &operator >> (QDataStream& out, PlayerInfo& any)
 {
-    qint32 id;
+    qint16 id;
     out >> id;
     any.setId(id);
     QPointF pos(0,0);
     out >> pos;
     any.setPos(pos);
-    qreal angle;
+    qint16 angle;
     out >> angle;
     any.setAngle(angle);
     PlayerInfo::Type type;
@@ -112,13 +112,13 @@ inline QDataStream &operator >> (QDataStream& out, PlayerInfo& any)
     out >> buffer;
     type = PlayerInfo::Type(buffer);
     any.setType(type);
-    qreal speed;
+    quint8 speed;
     out >> speed;
     any.setSpeed(speed);
-    qreal angleSpeed;
+    qint8 angleSpeed;
     out >> angleSpeed;
     any.setAngleSpeed(angleSpeed);
-    qint16 health;
+    quint8 health;
     out >> health;
     any.setHealth(health);
     return out;

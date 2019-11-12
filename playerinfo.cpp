@@ -1,6 +1,6 @@
 #include "playerinfo.h"
 
-PlayerInfo::PlayerInfo(qint32 id, QPointF pos, qreal angle, Type type, qreal speed, qreal angleSpeed, qint16 health)
+PlayerInfo::PlayerInfo(qint16 id, QPointF pos, qint16 angle, Type type, quint8 speed, qint8 angleSpeed, quint8 health)
 {
     this->id         = id;
     this->pos        = pos;
@@ -21,7 +21,7 @@ PlayerInfo::PlayerInfo()
     this->angleSpeed = 0;
 }
 
-qint32 PlayerInfo::getId() const
+qint16 PlayerInfo::getId() const
 {
     return id;
 }
@@ -31,7 +31,7 @@ QPointF PlayerInfo::getPos() const
     return pos;
 }
 
-qreal PlayerInfo::getAngle() const
+qint16 PlayerInfo::getAngle() const
 {
     return angle;
 }
@@ -41,23 +41,23 @@ PlayerInfo::Type PlayerInfo::getType() const
     return  type;
 }
 
-qreal PlayerInfo::getSpeed() const
+quint8 PlayerInfo::getSpeed() const
 {
     return speed;
 }
 
 
-qreal PlayerInfo::getAngleSpeed() const
+qint8 PlayerInfo::getAngleSpeed() const
 {
     return angleSpeed;
 }
 
-qint16 PlayerInfo::getHealth() const
+quint8 PlayerInfo::getHealth() const
 {
     return health;
 }
 
-void PlayerInfo::setId(qint32 id)
+void PlayerInfo::setId(qint16 id)
 {
     this->id = id;
 }
@@ -67,7 +67,7 @@ void PlayerInfo::setPos(QPointF pos)
     this->pos = pos;
 }
 
-void PlayerInfo::setAngle(qreal angle)
+void PlayerInfo::setAngle(qint16 angle)
 {
     this->angle = angle;
 }
@@ -77,17 +77,17 @@ void PlayerInfo::setType(PlayerInfo::Type type)
     this->type = type;
 }
 
-void PlayerInfo::setSpeed(qreal speed)
+void PlayerInfo::setSpeed(quint8 speed)
 {
     this->speed = speed;
 }
 
-void PlayerInfo::setAngleSpeed(qreal angleSpeed)
+void PlayerInfo::setAngleSpeed(qint8 angleSpeed)
 {
     this->angleSpeed = angleSpeed;
 }
 
-void PlayerInfo::setHealth(qint16 health)
+void PlayerInfo::setHealth(quint8 health)
 {
     this->health = health;
 }
