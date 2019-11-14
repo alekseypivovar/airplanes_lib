@@ -16,8 +16,10 @@ public:
     void setSpeed(quint8 speed);
     void setAngleSpeed(qint8 angleSpeed);
     void setHealth(quint8 health);
+    void setAngle(qint16  angle);
 
     PlayerInfo::Type    getType() const;
+    qint16   getAngle() const;
     quint8   getSpeed() const;
     qint8    getAngleSpeed() const;
     quint8   getHealth() const;

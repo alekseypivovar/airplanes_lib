@@ -25,9 +25,19 @@ void Plane::setHealth(quint8 health)
     this->health = health;
 }
 
+void Plane::setAngle(qint16 angle)
+{
+    this->angle = angle;
+}
+
 PlayerInfo::Type Plane::getType() const
 {
     return type;
+}
+
+qint16 Plane::getAngle() const
+{
+    return angle;
 }
 
 quint8 Plane::getSpeed() const
@@ -55,6 +65,10 @@ void Plane::advance(int phase)
 {
     if (phase) {
         angle += angleSpeed;
+        if (angle > 360)
+            angle -= 360;
+        else if (angle < 0)
+            angle += 360;
         qreal dx = speed * cos(angle * M_PI / 180.0) * ( 1);
         qreal dy = speed * sin(angle * M_PI / 180.0) * (-1);
         this->moveBy(dx, dy);

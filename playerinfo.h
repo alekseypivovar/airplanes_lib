@@ -8,8 +8,8 @@
 #include <QDataStream>
 #define FRAMES_PER_SEC 30
 #define TILE_SIZE 32
-#define PLANE_SPEED 5
-#define ANGLE_SPEED 5
+#define PLANE_SPEED 3
+#define ANGLE_SPEED 4
 
 struct WARSHIPS_AIRPLANES_DLLSHARED_EXPORT idAndMap {
     qint16 id;
