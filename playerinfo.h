@@ -16,7 +16,10 @@ struct WARSHIPS_AIRPLANES_DLLSHARED_EXPORT idAndMap {
     QVector <QString> map;
 };
 
-
+enum SendInfoType {
+    COORDS,
+    BULLET
+};
 
 class WARSHIPS_AIRPLANES_DLLSHARED_EXPORT PlayerInfo
 {

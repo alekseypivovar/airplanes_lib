@@ -23,10 +23,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        bullet.cpp \
         plane.cpp \
         playerinfo.cpp
 
 HEADERS += \
+        bullet.h \
         plane.h \
         playerinfo.h \
         warships_airplanes_dll_global.h 
