@@ -13,6 +13,9 @@ void Bullet::advance(int phase)
         qreal dx = speed * cos(angle * M_PI / 180.0) * ( 1);
         qreal dy = speed * sin(angle * M_PI / 180.0) * (-1);
         this->moveBy(dx, dy);
+
+        if (QLineF(startPos, this->scenePos()).length() > 600)
+            delete this;
     }
 }
 
@@ -28,10 +31,15 @@ void Bullet::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
     Q_UNUSED(option)
     Q_UNUSED(widget)
     painter->save();
-    painter->setPen(QPen(Qt::darkYellow));
-    painter->setBrush(QBrush(Qt::darkYellow));
+    painter->setPen(QPen(Qt::yellow));
+    painter->setBrush(QBrush(Qt::yellow));
     painter->drawRect(boundingRect());
     painter->restore();
+}
+
+int Bullet::type() const
+{
+    return Type;
 }
 
 QPointF Bullet::getStartPos() const

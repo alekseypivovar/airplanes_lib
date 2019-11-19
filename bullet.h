@@ -36,11 +36,11 @@ class WARSHIPS_AIRPLANES_DLLSHARED_EXPORT Bullet : public QGraphicsItem
 {
 public:
     Bullet(QPointF startPos, qint16 angle);
-
+    enum { Type = UserType + 2 };
     virtual void advance(int phase);
     virtual QRectF boundingRect() const;
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-
+    int type() const;
     QPointF getStartPos() const;
 
     BulletInfo getBulletInfo() const;
