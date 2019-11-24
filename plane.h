@@ -48,6 +48,7 @@ private:
 signals:
     void planeMoved(Plane* plane);
     void planeAndBulletCollided(Plane* plane, Bullet* bullet);
+    void planeAndPlaneCollided(Plane* plane1, Plane* plane2);
 
 };
 

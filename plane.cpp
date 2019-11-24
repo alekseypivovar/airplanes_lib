@@ -115,15 +115,13 @@ void Plane::checkCollisions()
 
     for (int i = 0; i < items.length(); i++) {
         Bullet* bullet = qgraphicsitem_cast<Bullet*>(items.at(i));
+        Plane* plane = qgraphicsitem_cast<Plane*>(items.at(i));
         if (bullet) {
             emit planeAndBulletCollided(this, bullet);
-//            bullet->hide();
-//            scene()->removeItem(bullet);
-//            delete bullet;
         }
-
-
-        // if (plane) ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        if (plane) {
+            emit planeAndPlaneCollided(this, plane);
+        }
     }
 }
 
