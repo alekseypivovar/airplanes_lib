@@ -25,12 +25,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         bullet.cpp \
         plane.cpp \
-        playerinfo.cpp
+        playerinfo.cpp \
+        simplecrypt.cpp
 
 HEADERS += \
         bullet.h \
         plane.h \
         playerinfo.h \
+        simplecrypt.h \
         warships_airplanes_dll_global.h 
 
 unix {
